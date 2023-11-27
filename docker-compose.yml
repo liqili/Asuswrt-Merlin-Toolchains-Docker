@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  ubuntu:
+    build: .
+    # restart: always
+    volumes:
+      - ./asuswrt-merlin.ng-386.07_2-gnuton1:/build
+      - ./am-toolchains/brcm-arm-hnd:/opt/toolchains
