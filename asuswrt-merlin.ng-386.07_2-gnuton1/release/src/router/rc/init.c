@@ -11025,12 +11025,12 @@ int init_nvram(void)
 #endif
 
 #if defined(RTAX82U) && !defined(RTCONFIG_BCM_MFG)
-		if (!nvram_get_int("LED_order"))
+		// if (!nvram_get_int("LED_order"))
 		{
 			nvram_set("0:ledbh0", "0x1");   // fake 2.4g LED
-			nvram_set("1:ledbh15", "0x80"); // fake WAN LED
+			nvram_set("1:ledbh15", "0x87"); // fake WAN LED
 		}
-		else
+		// else
 #endif
 		{
 			nvram_unset("0:ledbh0");
@@ -11088,29 +11088,30 @@ int init_nvram(void)
 		nvram_set_int("btn_rst_gpio", 0|GPIO_ACTIVE_LOW);
 		nvram_set_int("pwr_usb_gpio", 0xff);
 #if defined(RTAX82U) && !defined(RTCONFIG_BCM_MFG)
-		if (!nvram_get_int("LED_order"))
-		nvram_set_int("led_5g_gpio", 31|GPIO_ACTIVE_LOW);	// fake 5g LED
+		// if (!nvram_get_int("LED_order"))
+		// nvram_set_int("led_5g_gpio", 31|GPIO_ACTIVE_LOW);	// fake 5g LED
+
 #endif
 #if defined(RTAX82U) || defined(GSAX3000) || defined(GSAX5400)
-		nvram_set_int("led_group1_red_gpio", 22);
-		nvram_set_int("led_group1_green_gpio", 6);
-		nvram_set_int("led_group1_blue_gpio", 5);
-		nvram_set_int("led_group2_red_gpio", 2);
-		nvram_set_int("led_group2_green_gpio", 3);
-		nvram_set_int("led_group2_blue_gpio", 4);
-		nvram_set_int("led_group3_red_gpio", 11);
-		nvram_set_int("led_group3_green_gpio", 13);
-		nvram_set_int("led_group3_blue_gpio", 24);
-		nvram_set_int("led_group4_red_gpio", 8);
-		nvram_set_int("led_group4_green_gpio", 29);
-		nvram_set_int("led_group4_blue_gpio", 25);
-#if defined(GSAX3000) || defined(GSAX5400)
-		nvram_set_int("led_group5_red_gpio", 15);
-		nvram_set_int("led_group5_green_gpio", 10);
-		nvram_set_int("led_group5_blue_gpio", 28);
-#else
-		nvram_set_int("btn_led_gpio", 10|GPIO_ACTIVE_LOW);
-#endif
+		// nvram_set_int("led_group1_red_gpio", 22);
+		// nvram_set_int("led_group1_green_gpio", 6);
+		// nvram_set_int("led_group1_blue_gpio", 5);
+		// nvram_set_int("led_group2_red_gpio", 2);
+		// nvram_set_int("led_group2_green_gpio", 3);
+		// nvram_set_int("led_group2_blue_gpio", 4);
+		// nvram_set_int("led_group3_red_gpio", 11);
+		// nvram_set_int("led_group3_green_gpio", 13);
+		// nvram_set_int("led_group3_blue_gpio", 24);
+		// nvram_set_int("led_group4_red_gpio", 8);
+		// nvram_set_int("led_group4_green_gpio", 29);
+		// nvram_set_int("led_group4_blue_gpio", 25);
+// #if defined(GSAX3000) || defined(GSAX5400)
+// 		nvram_set_int("led_group5_red_gpio", 15);
+// 		nvram_set_int("led_group5_green_gpio", 10);
+// 		nvram_set_int("led_group5_blue_gpio", 28);
+// #else
+// 		nvram_set_int("btn_led_gpio", 10|GPIO_ACTIVE_LOW);
+// #endif
 #endif
 #ifdef TUFAX5400
 		nvram_set_int("led_group1_red_gpio", 13);
